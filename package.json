@@ -1,0 +1,58 @@
+{
+  "name": "@shooontan/google-home-notifier",
+  "version": "0.0.1",
+  "description": "Pure JavaScript Google-Home notifier",
+  "main": "./build/google-home-notifier.js",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "Google-Home",
+    "google-home-notifier"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shooontan/google-home-notifier.git"
+  },
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "dev": "tsc --watch",
+    "test": "jest --forceExit --detectOpenHandles"
+  },
+  "dependencies": {
+    "castv2-client": "^1.2.0",
+    "google-tts-api": "^0.0.2",
+    "mdns-js": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.9.4",
+    "jest": "^23.6.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/*.test.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "/build/"
+    ]
+  },
+  "files": [
+    "build",
+    "index.d.ts"
+  ]
+}
