@@ -46,9 +46,6 @@
     },
     "testMatch": [
       "**/*.test.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "/build/"
     ]
   },
   "files": [

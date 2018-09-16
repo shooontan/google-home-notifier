@@ -26,21 +26,27 @@ test('notifier instance options', () => {
 });
 
 test('create browser error', async () => {
-  const notifier = new GoogleHomeNotifier();
+  const notifier = new GoogleHomeNotifier({
+    device: deviceName,
+  });
   await expect(notifier.create(timeout)).rejects.toEqual(
     new Error('timeout create browser')
   );
 });
 
 test('say command', async () => {
-  const notifier = new GoogleHomeNotifier();
+  const notifier = new GoogleHomeNotifier({
+    device: deviceName,
+  });
   await expect(notifier.say('')).rejects.toEqual(new Error('no deviceAddress'));
   notifier.ip('192.168.0.0');
   await expect(notifier.say('')).rejects.toEqual(new Error('no message'));
 });
 
 test('play command', async () => {
-  const notifier = new GoogleHomeNotifier();
+  const notifier = new GoogleHomeNotifier({
+    device: deviceName,
+  });
   await expect(notifier.play('')).rejects.toEqual(
     new Error('no deviceAddress')
   );
