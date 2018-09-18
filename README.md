@@ -1,8 +1,10 @@
-# Google Home Notifier
+# @shooontan/google-home-notifier
+
+[![Build Status](https://travis-ci.org/shooontan/google-home-notifier.svg?branch=master)](https://travis-ci.org/shooontan/google-home-notifier)
 
 Send notifications to Google Home.
 
-This module is rewrite in TypeScript based on [google-home-notifier](https://github.com/noelportugal/google-home-notifier). We are freed of the need to build with node-gyp when run `npm install`.
+This module is rewritten in TypeScript based on [google-home-notifier](https://github.com/noelportugal/google-home-notifier). We are freed of the need to build with node-gyp when run `npm install`.
 
 ## Install
 
