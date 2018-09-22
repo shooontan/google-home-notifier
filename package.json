@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "castv2-client": "^1.2.0",
-    "google-tts-api": "^0.0.2",
+    "google-tts-api": "^0.0.3",
     "mdns-js": "^1.0.1"
   },
   "devDependencies": {
