@@ -1,6 +1,6 @@
 {
   "name": "@shooontan/google-home-notifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Pure JavaScript Google-Home notifier",
   "main": "./build/google-home-notifier.js",
   "license": "MIT",
