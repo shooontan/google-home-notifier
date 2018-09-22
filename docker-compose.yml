@@ -6,7 +6,6 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-      - /app/build
     tty: true
     network_mode: host
     container_name: google-home-notifier
