@@ -6,3 +6,6 @@ build
 
 # yarn
 yarn-error.log
+
+# jest
+coverage

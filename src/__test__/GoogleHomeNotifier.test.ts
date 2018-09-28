@@ -1,29 +1,9 @@
-import GoogleHomeNotifier from './google-home-notifier';
+import GoogleHomeNotifier from '../GoogleHomeNotifier';
 
 const deviceName = 'google-home';
 const ip = '192.168.0.0';
 const lang = 'jp';
 const timeout = 1000;
-
-test('notifier instance', () => {
-  const notifier = new GoogleHomeNotifier();
-  notifier.device(deviceName);
-  notifier.ip(ip);
-  notifier.lang(lang);
-  expect(notifier.deviceName).toBe(deviceName);
-  expect(notifier.deviceAddress).toBe(ip);
-  expect(notifier.language).toBe(lang);
-});
-
-test('notifier instance options', () => {
-  const notifier = new GoogleHomeNotifier({
-    device: deviceName,
-    lang,
-  });
-  expect(notifier.deviceName).toBe(deviceName);
-  expect(notifier.deviceAddress).toBe('');
-  expect(notifier.language).toBe(lang);
-});
 
 test('create browser error', async () => {
   const notifier = new GoogleHomeNotifier({
