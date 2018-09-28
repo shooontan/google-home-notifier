@@ -2,7 +2,7 @@ import { Client, DefaultMediaReceiver } from 'castv2-client';
 import googletts from 'google-tts-api';
 import mdns from 'mdns-js';
 
-interface Options {
+export interface Options {
   device?: string;
   ip?: string;
   lang?: string;
