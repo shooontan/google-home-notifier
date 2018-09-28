@@ -48,7 +48,7 @@ export default class GoogleHomeNotifier {
       }, timeout);
     });
 
-    const browserProm = new Promise((resolve, reject) => {
+    const browserProm = new Promise(resolve => {
       browser.on('ready', () => {
         browser.discover();
       });
@@ -110,13 +110,19 @@ export default class GoogleHomeNotifier {
       client.connect(
         host,
         () => {
-          client.launch(DefaultMediaReceiver, (err: Error, player: any) => {
+          client.launch(DefaultMediaReceiver, (error: Error, player: any) => {
+            if (error) {
+              return reject(error);
+            }
             const media = {
               contentId: url,
               contentType: 'audio/mp3',
               streamType: 'BUFFERED',
             };
-            player.load(media, { autoplay: true }, (err: Error) => {
+            player.load(media, { autoplay: true }, (error: Error) => {
+              if (error) {
+                return reject(error);
+              }
               client.close();
               resolve('Device notified');
             });

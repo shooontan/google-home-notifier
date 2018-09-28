@@ -2,10 +2,15 @@
   "compilerOptions": {
     "target": "es2017",
     "module": "commonjs",
+    "declaration": true,
     "outDir": "./build",
     "rootDir": "./src",
     "strict": true,
-    "esModuleInterop": true
+    "lib": ["es6"],
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true
   },
   "exclude": [
     "node_modules",

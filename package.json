@@ -49,7 +49,6 @@
     ]
   },
   "files": [
-    "build",
-    "index.d.ts"
+    "build"
   ]
 }
