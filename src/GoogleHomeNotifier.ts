@@ -8,6 +8,11 @@ export interface Options {
   lang?: string;
 }
 
+interface TtsOptions {
+  lang?: string;
+  speed?: number;
+}
+
 export default class GoogleHomeNotifier {
   deviceName: string;
   deviceAddress: string;
@@ -72,14 +77,23 @@ export default class GoogleHomeNotifier {
     return Promise.race([timeoutProm, browserProm]);
   }
 
-  say(message: string) {
+  say(message: string, options?: TtsOptions) {
     if (!this.deviceAddress) {
       return Promise.reject(new Error('no deviceAddress'));
     }
     if (!message) {
       return Promise.reject(new Error('no message'));
     }
-    return this.getSpeechUrl(message, this.deviceAddress);
+
+    const { lang, speed } = Object.assign(
+      {
+        lang: this.language,
+        speed: 1,
+      },
+      options
+    );
+
+    return this.getSpeechUrl(message, this.deviceAddress, lang, speed);
   }
 
   play(mp3Url: string | Array<string>) {
@@ -106,8 +120,8 @@ export default class GoogleHomeNotifier {
     return Promise.reject(new Error('play() arg is string or string[]'));
   }
 
-  getSpeechUrl(text: string, host: string) {
-    return googletts(text, this.language, 1, 1000).then(url => {
+  getSpeechUrl(text: string, host: string, language: string, speed: number) {
+    return googletts(text, language, speed, 1000).then(url => {
       return this.onDeviceUp(host, url).catch(error => {
         throw error;
       });
