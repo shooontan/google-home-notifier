@@ -82,14 +82,28 @@ export default class GoogleHomeNotifier {
     return this.getSpeechUrl(message, this.deviceAddress);
   }
 
-  play(mp3Url: string) {
+  play(mp3Url: string | Array<string>) {
     if (!this.deviceAddress) {
       return Promise.reject(new Error('no deviceAddress'));
     }
     if (!mp3Url) {
       return Promise.reject(new Error('no mp3 url'));
     }
-    return this.getPlayUrl(mp3Url, this.deviceAddress);
+
+    if (typeof mp3Url === 'string') {
+      return this.getPlayUrl(mp3Url, this.deviceAddress);
+    }
+
+    if (Array.isArray(mp3Url)) {
+      const proms = mp3Url.map(url => {
+        return () => this.getPlayUrl(url, this.deviceAddress);
+      });
+      return proms.reduce((pre: Promise<any>, cur) => {
+        return pre.then(cur);
+      }, Promise.resolve());
+    }
+
+    return Promise.reject(new Error('play() arg is string or string[]'));
   }
 
   getSpeechUrl(text: string, host: string) {
@@ -112,19 +126,32 @@ export default class GoogleHomeNotifier {
         () => {
           client.launch(DefaultMediaReceiver, (error: Error, player: any) => {
             if (error) {
+              client.close();
               return reject(error);
             }
+
             const media = {
               contentId: url,
               contentType: 'audio/mp3',
               streamType: 'BUFFERED',
             };
+
             player.load(media, { autoplay: true }, (error: Error) => {
               if (error) {
+                client.close();
                 return reject(error);
               }
-              client.close();
-              resolve('Device notified');
+            });
+
+            player.on('status', (status: any) => {
+              if (
+                status &&
+                status.idleReason &&
+                status.idleReason === 'FINISHED'
+              ) {
+                client.close();
+                return resolve('Device notified');
+              }
             });
           });
         }

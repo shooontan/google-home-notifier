@@ -32,4 +32,8 @@ test('play command', async () => {
   );
   notifier.ip('192.168.0.0');
   await expect(notifier.play('')).rejects.toEqual(new Error('no mp3 url'));
+  // @ts-ignore
+  await expect(notifier.play(1)).rejects.toEqual(
+    new Error('play() arg is string or string[]')
+  );
 });
