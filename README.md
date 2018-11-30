@@ -1,6 +1,6 @@
 # @shooontan/google-home-notifier
 
-[![npm version](https://badge.fury.io/js/%40shooontan%2Fgoogle-home-notifier.svg)](https://badge.fury.io/js/%40shooontan%2Fgoogle-home-notifier)
+[![npm version](https://img.shields.io/npm/v/%40shooontan%2Fgoogle-home-notifier.svg)](https://www.npmjs.com/package/%40shooontan%2Fgoogle-home-notifier)
 [![Build Status](https://travis-ci.org/shooontan/google-home-notifier.svg?branch=master)](https://travis-ci.org/shooontan/google-home-notifier)
 
 Send notifications to Google Home.
