@@ -1067,9 +1067,9 @@ globals@^9.18.0:
   version "9.18.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
 
-google-tts-api@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/google-tts-api/-/google-tts-api-0.0.3.tgz#2fbc4db33fd58f2acbd6af1443026e15922dcca5"
+google-tts-api@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/google-tts-api/-/google-tts-api-0.0.4.tgz#76c6b73de3703cdca5a2cd211bc77e3f95585fe0"
   dependencies:
     isomorphic-fetch "^2.2.1"
 
