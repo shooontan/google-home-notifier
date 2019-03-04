@@ -14,7 +14,8 @@
     "url": "git+https://github.com/shooontan/google-home-notifier.git"
   },
   "scripts": {
-    "build": "rimraf ./build && tsc",
+    "build": "tsc",
+    "prebuild": "rm -rf ./build",
     "dev": "tsc --watch",
     "test": "jest --forceExit --detectOpenHandles"
   },
@@ -27,7 +28,6 @@
     "@types/jest": "^23.3.2",
     "@types/node": "^10.9.4",
     "jest": "^23.6.0",
-    "rimraf": "^2.6.2",
     "ts-jest": "^23.1.4",
     "typescript": "^3.0.3"
   },
