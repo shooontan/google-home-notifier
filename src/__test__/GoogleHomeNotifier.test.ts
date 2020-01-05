@@ -1,8 +1,8 @@
 import GoogleHomeNotifier from '../GoogleHomeNotifier';
 
 const deviceName = 'google-home';
-const ip = '192.168.0.0';
-const lang = 'jp';
+// const ip = '192.168.0.0';
+// const lang = 'jp';
 const timeout = 1000;
 
 test('create browser error', async () => {

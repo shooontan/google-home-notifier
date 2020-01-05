@@ -1,19 +1,12 @@
 {
+  "extends": "@shooontan/tsconfig",
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
-    "declaration": true,
-    "outDir": "./build",
-    "rootDir": "./src",
-    "strict": true,
-    "lib": ["es6"],
-    "esModuleInterop": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "outDir": "build",
+    "rootDir": "src"
   },
   "exclude": [
     "node_modules",
     "**/*.test.ts",
+    "build"
   ]
 }
